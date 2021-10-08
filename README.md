@@ -22,5 +22,10 @@ use the function `ogc_table` with `cat`:
 ``` r
 library(Rogctable)
 d1 = head(iris)
-cat(ogc_table(d1))
+cat(ogc_table(d1),
+    sep = "\n")
 ```
+
+Download the
+[PDF](https://github.com/AQLT/Rogctable/blob/master/vignettes/Rogctable.pdf),
+open it with Adobe Acrobat Reader and click on the columns!
