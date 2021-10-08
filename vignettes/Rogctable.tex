@@ -1,0 +1,335 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Rogctable},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{ocg-p,datatool,tikz,booktabs, colortbl}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\title{Rogctable}
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+\maketitle
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(Rogctable)}
+\end{Highlighting}
+\end{Shaded}
+
+Open the PDF with Adobe Acrobat Reader and then click on the column
+names!
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OtherTok{=} \FunctionTok{data.frame}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{First name}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{c}\NormalTok{(}\StringTok{"Paul"}\NormalTok{,}\StringTok{"John"}\NormalTok{,}\StringTok{"Ever"}\NormalTok{,}\StringTok{"Werner"}\NormalTok{,}\StringTok{"Peggy"}\NormalTok{),}
+               \StringTok{\textasciigrave{}}\AttributeTok{Last name}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{c}\NormalTok{(}\StringTok{"Bauer"}\NormalTok{, }\StringTok{"Doe"}\NormalTok{, }\StringTok{"Last"}\NormalTok{, }\StringTok{"Moshammer"}\NormalTok{, }\StringTok{"Sue"}\NormalTok{),}
+               \StringTok{\textasciigrave{}}\AttributeTok{Grade}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{3}\NormalTok{),}
+               \AttributeTok{check.names =} \ConstantTok{FALSE}\NormalTok{)}\ErrorTok{)}
+\FunctionTok{cat}\NormalTok{(}\FunctionTok{ogc\_table}\NormalTok{(x),}\AttributeTok{sep =} \StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\DTLnewdb{data}
+\DTLnewrow{data}
+\DTLnewdbentry{data}{cola}{Paul}
+\DTLnewdbentry{data}{colb}{Bauer}
+\DTLnewdbentry{data}{colc}{1}
+\DTLnewrow{data}
+\DTLnewdbentry{data}{cola}{John}
+\DTLnewdbentry{data}{colb}{Doe}
+\DTLnewdbentry{data}{colc}{5}
+\DTLnewrow{data}
+\DTLnewdbentry{data}{cola}{Ever}
+\DTLnewdbentry{data}{colb}{Last}
+\DTLnewdbentry{data}{colc}{4}
+\DTLnewrow{data}
+\DTLnewdbentry{data}{cola}{Werner}
+\DTLnewdbentry{data}{colb}{Moshammer}
+\DTLnewdbentry{data}{colc}{1}
+\DTLnewrow{data}
+\DTLnewdbentry{data}{cola}{Peggy}
+\DTLnewdbentry{data}{colb}{Sue}
+\DTLnewdbentry{data}{colc}{3}
+
+\begin{tikzpicture}
+\begin{ocg}[exportocg=always]{First name}{ocdataaid}{1}
+\node[] (p1) {
+  \begin{tabular}{lll}
+  \toprule
+  \bfseries \setocgs{}{ocdataaid}{ocdatabid ocdatacid}{First name} & \bfseries \setocgs{}{ocdatabid}{ocdataaid ocdatacid}{Last name} & \bfseries \setocgs{}{ocdatacid}{ocdataaid ocdatabid}{Grade}
+  \DTLsort*{cola}{data}
+  \DTLforeach{data}{\cmda =cola, \cmdb =colb, \cmdc =colc}{
+  \DTLiffirstrow{\\ \midrule}{\\}
+  \cmda & \cmdb & \cmdc
+  }
+  \\ \bottomrule
+  \end{tabular}
+};
+\end{ocg}
+\begin{ocg}[exportocg=never]{Last name}{ocdatabid}{0}
+\node[overlay] (p2) {
+  \begin{tabular}{lll}
+  \toprule
+  \bfseries \setocgs{}{ocdataaid}{ocdatabid ocdatacid}{First name} & \bfseries \setocgs{}{ocdatabid}{ocdataaid ocdatacid}{Last name} & \bfseries \setocgs{}{ocdatacid}{ocdataaid ocdatabid}{Grade}
+  \DTLsort*{colb}{data}
+  \DTLforeach{data}{\cmda =cola, \cmdb =colb, \cmdc =colc}{
+  \DTLiffirstrow{\\ \midrule}{\\}
+  \cmda & \cmdb & \cmdc
+  }
+  \\ \bottomrule
+  \end{tabular}
+};
+\end{ocg}
+\begin{ocg}[exportocg=never]{Grade}{ocdatacid}{0}
+\node[overlay] (p3) {
+  \begin{tabular}{lll}
+  \toprule
+  \bfseries \setocgs{}{ocdataaid}{ocdatabid ocdatacid}{First name} & \bfseries \setocgs{}{ocdatabid}{ocdataaid ocdatacid}{Last name} & \bfseries \setocgs{}{ocdatacid}{ocdataaid ocdatabid}{Grade}
+  \DTLsort*{colc}{data}
+  \DTLforeach{data}{\cmda =cola, \cmdb =colb, \cmdc =colc}{
+  \DTLiffirstrow{\\ \midrule}{\\}
+  \cmda & \cmdb & \cmdc
+  }
+  \\ \bottomrule
+  \end{tabular}
+};
+\end{ocg}
+\end{tikzpicture}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{d }\OtherTok{=}\NormalTok{ iris[}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{, }\DecValTok{51}\SpecialCharTok{:}\DecValTok{52}\NormalTok{,}\DecValTok{102}\SpecialCharTok{:}\DecValTok{105}\NormalTok{),]}
+\FunctionTok{cat}\NormalTok{(}\FunctionTok{ogc\_table}\NormalTok{(d,),}\AttributeTok{sep =} \StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\DTLnewdb{iris}
+\DTLnewrow{iris}
+\DTLnewdbentry{iris}{cola}{5.1}
+\DTLnewdbentry{iris}{colb}{3.5}
+\DTLnewdbentry{iris}{colc}{1.4}
+\DTLnewdbentry{iris}{cold}{0.2}
+\DTLnewdbentry{iris}{cole}{setosa}
+\DTLnewrow{iris}
+\DTLnewdbentry{iris}{cola}{4.9}
+\DTLnewdbentry{iris}{colb}{3.0}
+\DTLnewdbentry{iris}{colc}{1.4}
+\DTLnewdbentry{iris}{cold}{0.2}
+\DTLnewdbentry{iris}{cole}{setosa}
+\DTLnewrow{iris}
+\DTLnewdbentry{iris}{cola}{4.7}
+\DTLnewdbentry{iris}{colb}{3.2}
+\DTLnewdbentry{iris}{colc}{1.3}
+\DTLnewdbentry{iris}{cold}{0.2}
+\DTLnewdbentry{iris}{cole}{setosa}
+\DTLnewrow{iris}
+\DTLnewdbentry{iris}{cola}{7.0}
+\DTLnewdbentry{iris}{colb}{3.2}
+\DTLnewdbentry{iris}{colc}{4.7}
+\DTLnewdbentry{iris}{cold}{1.4}
+\DTLnewdbentry{iris}{cole}{versicolor}
+\DTLnewrow{iris}
+\DTLnewdbentry{iris}{cola}{6.4}
+\DTLnewdbentry{iris}{colb}{3.2}
+\DTLnewdbentry{iris}{colc}{4.5}
+\DTLnewdbentry{iris}{cold}{1.5}
+\DTLnewdbentry{iris}{cole}{versicolor}
+\DTLnewrow{iris}
+\DTLnewdbentry{iris}{cola}{5.8}
+\DTLnewdbentry{iris}{colb}{2.7}
+\DTLnewdbentry{iris}{colc}{5.1}
+\DTLnewdbentry{iris}{cold}{1.9}
+\DTLnewdbentry{iris}{cole}{virginica}
+\DTLnewrow{iris}
+\DTLnewdbentry{iris}{cola}{7.1}
+\DTLnewdbentry{iris}{colb}{3.0}
+\DTLnewdbentry{iris}{colc}{5.9}
+\DTLnewdbentry{iris}{cold}{2.1}
+\DTLnewdbentry{iris}{cole}{virginica}
+\DTLnewrow{iris}
+\DTLnewdbentry{iris}{cola}{6.3}
+\DTLnewdbentry{iris}{colb}{2.9}
+\DTLnewdbentry{iris}{colc}{5.6}
+\DTLnewdbentry{iris}{cold}{1.8}
+\DTLnewdbentry{iris}{cole}{virginica}
+\DTLnewrow{iris}
+\DTLnewdbentry{iris}{cola}{6.5}
+\DTLnewdbentry{iris}{colb}{3.0}
+\DTLnewdbentry{iris}{colc}{5.8}
+\DTLnewdbentry{iris}{cold}{2.2}
+\DTLnewdbentry{iris}{cole}{virginica}
+
+\begin{tikzpicture}
+\begin{ocg}[exportocg=always]{Sepal.Length}{ocirisaid}{1}
+\node[] (p1) {
+  \begin{tabular}{lllll}
+  \toprule
+  \bfseries \setocgs{}{ocirisaid}{ocirisbid ociriscid ocirisdid ociriseid}{Sepal.Length} & \bfseries \setocgs{}{ocirisbid}{ocirisaid ociriscid ocirisdid ociriseid}{Sepal.Width} & \bfseries \setocgs{}{ociriscid}{ocirisaid ocirisbid ocirisdid ociriseid}{Petal.Length} & \bfseries \setocgs{}{ocirisdid}{ocirisaid ocirisbid ociriscid ociriseid}{Petal.Width} & \bfseries \setocgs{}{ociriseid}{ocirisaid ocirisbid ociriscid ocirisdid}{Species}
+  \DTLsort*{cola}{iris}
+  \DTLforeach{iris}{\cmda =cola, \cmdb =colb, \cmdc =colc, \cmdd =cold, \cmde =cole}{
+  \DTLiffirstrow{\\ \midrule}{\\}
+  \DTLifoddrow{\cellcolor{gray!6}{\cmda}}{\cmda} & \DTLifoddrow{\cellcolor{gray!6}{\cmdb}}{\cmdb} & \DTLifoddrow{\cellcolor{gray!6}{\cmdc}}{\cmdc} & \DTLifoddrow{\cellcolor{gray!6}{\cmdd}}{\cmdd} & \DTLifoddrow{\cellcolor{gray!6}{\cmde}}{\cmde}
+  }
+  \\ \bottomrule
+  \end{tabular}
+};
+\end{ocg}
+\begin{ocg}[exportocg=never]{Sepal.Width}{ocirisbid}{0}
+\node[overlay] (p2) {
+  \begin{tabular}{lllll}
+  \toprule
+  \bfseries \setocgs{}{ocirisaid}{ocirisbid ociriscid ocirisdid ociriseid}{Sepal.Length} & \bfseries \setocgs{}{ocirisbid}{ocirisaid ociriscid ocirisdid ociriseid}{Sepal.Width} & \bfseries \setocgs{}{ociriscid}{ocirisaid ocirisbid ocirisdid ociriseid}{Petal.Length} & \bfseries \setocgs{}{ocirisdid}{ocirisaid ocirisbid ociriscid ociriseid}{Petal.Width} & \bfseries \setocgs{}{ociriseid}{ocirisaid ocirisbid ociriscid ocirisdid}{Species}
+  \DTLsort*{colb}{iris}
+  \DTLforeach{iris}{\cmda =cola, \cmdb =colb, \cmdc =colc, \cmdd =cold, \cmde =cole}{
+  \DTLiffirstrow{\\ \midrule}{\\}
+  \DTLifoddrow{\cellcolor{gray!6}{\cmda}}{\cmda} & \DTLifoddrow{\cellcolor{gray!6}{\cmdb}}{\cmdb} & \DTLifoddrow{\cellcolor{gray!6}{\cmdc}}{\cmdc} & \DTLifoddrow{\cellcolor{gray!6}{\cmdd}}{\cmdd} & \DTLifoddrow{\cellcolor{gray!6}{\cmde}}{\cmde}
+  }
+  \\ \bottomrule
+  \end{tabular}
+};
+\end{ocg}
+\begin{ocg}[exportocg=never]{Petal.Length}{ociriscid}{0}
+\node[overlay] (p3) {
+  \begin{tabular}{lllll}
+  \toprule
+  \bfseries \setocgs{}{ocirisaid}{ocirisbid ociriscid ocirisdid ociriseid}{Sepal.Length} & \bfseries \setocgs{}{ocirisbid}{ocirisaid ociriscid ocirisdid ociriseid}{Sepal.Width} & \bfseries \setocgs{}{ociriscid}{ocirisaid ocirisbid ocirisdid ociriseid}{Petal.Length} & \bfseries \setocgs{}{ocirisdid}{ocirisaid ocirisbid ociriscid ociriseid}{Petal.Width} & \bfseries \setocgs{}{ociriseid}{ocirisaid ocirisbid ociriscid ocirisdid}{Species}
+  \DTLsort*{colc}{iris}
+  \DTLforeach{iris}{\cmda =cola, \cmdb =colb, \cmdc =colc, \cmdd =cold, \cmde =cole}{
+  \DTLiffirstrow{\\ \midrule}{\\}
+  \DTLifoddrow{\cellcolor{gray!6}{\cmda}}{\cmda} & \DTLifoddrow{\cellcolor{gray!6}{\cmdb}}{\cmdb} & \DTLifoddrow{\cellcolor{gray!6}{\cmdc}}{\cmdc} & \DTLifoddrow{\cellcolor{gray!6}{\cmdd}}{\cmdd} & \DTLifoddrow{\cellcolor{gray!6}{\cmde}}{\cmde}
+  }
+  \\ \bottomrule
+  \end{tabular}
+};
+\end{ocg}
+\begin{ocg}[exportocg=never]{Petal.Width}{ocirisdid}{0}
+\node[overlay] (p4) {
+  \begin{tabular}{lllll}
+  \toprule
+  \bfseries \setocgs{}{ocirisaid}{ocirisbid ociriscid ocirisdid ociriseid}{Sepal.Length} & \bfseries \setocgs{}{ocirisbid}{ocirisaid ociriscid ocirisdid ociriseid}{Sepal.Width} & \bfseries \setocgs{}{ociriscid}{ocirisaid ocirisbid ocirisdid ociriseid}{Petal.Length} & \bfseries \setocgs{}{ocirisdid}{ocirisaid ocirisbid ociriscid ociriseid}{Petal.Width} & \bfseries \setocgs{}{ociriseid}{ocirisaid ocirisbid ociriscid ocirisdid}{Species}
+  \DTLsort*{cold}{iris}
+  \DTLforeach{iris}{\cmda =cola, \cmdb =colb, \cmdc =colc, \cmdd =cold, \cmde =cole}{
+  \DTLiffirstrow{\\ \midrule}{\\}
+  \DTLifoddrow{\cellcolor{gray!6}{\cmda}}{\cmda} & \DTLifoddrow{\cellcolor{gray!6}{\cmdb}}{\cmdb} & \DTLifoddrow{\cellcolor{gray!6}{\cmdc}}{\cmdc} & \DTLifoddrow{\cellcolor{gray!6}{\cmdd}}{\cmdd} & \DTLifoddrow{\cellcolor{gray!6}{\cmde}}{\cmde}
+  }
+  \\ \bottomrule
+  \end{tabular}
+};
+\end{ocg}
+\begin{ocg}[exportocg=never]{Species}{ociriseid}{0}
+\node[overlay] (p5) {
+  \begin{tabular}{lllll}
+  \toprule
+  \bfseries \setocgs{}{ocirisaid}{ocirisbid ociriscid ocirisdid ociriseid}{Sepal.Length} & \bfseries \setocgs{}{ocirisbid}{ocirisaid ociriscid ocirisdid ociriseid}{Sepal.Width} & \bfseries \setocgs{}{ociriscid}{ocirisaid ocirisbid ocirisdid ociriseid}{Petal.Length} & \bfseries \setocgs{}{ocirisdid}{ocirisaid ocirisbid ociriscid ociriseid}{Petal.Width} & \bfseries \setocgs{}{ociriseid}{ocirisaid ocirisbid ociriscid ocirisdid}{Species}
+  \DTLsort*{cole}{iris}
+  \DTLforeach{iris}{\cmda =cola, \cmdb =colb, \cmdc =colc, \cmdd =cold, \cmde =cole}{
+  \DTLiffirstrow{\\ \midrule}{\\}
+  \DTLifoddrow{\cellcolor{gray!6}{\cmda}}{\cmda} & \DTLifoddrow{\cellcolor{gray!6}{\cmdb}}{\cmdb} & \DTLifoddrow{\cellcolor{gray!6}{\cmdc}}{\cmdc} & \DTLifoddrow{\cellcolor{gray!6}{\cmdd}}{\cmdd} & \DTLifoddrow{\cellcolor{gray!6}{\cmde}}{\cmde}
+  }
+  \\ \bottomrule
+  \end{tabular}
+};
+\end{ocg}
+\end{tikzpicture}
+
+\end{document}

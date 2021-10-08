@@ -1,0 +1,53 @@
+---
+title: "Rogctable"
+output: 
+   pdf_document:
+      keep_tex: true
+vignette: >
+  %\VignetteIndexEntry{Rogctable}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+header-includes:
+   - \usepackage{ocg-p,datatool,tikz,booktabs, colortbl}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(Rogctable)
+```
+
+Open the PDF with Adobe Acrobat Reader and then click on the column names!
+
+```{r, eval = FALSE, echo=TRUE}
+x = data.frame(`First name` = c("Paul","John","Ever","Werner","Peggy"),
+               `Last name` = c("Bauer", "Doe", "Last", "Moshammer", "Sue"),
+               `Grade` = c(1,5,4,1,3),
+               check.names = FALSE))
+cat(ogc_table(x),sep = "\n")
+```
+
+```{r data, results='asis', eval = TRUE, echo=FALSE}
+x = data.frame(`First name` = c("Paul","John","Ever","Werner","Peggy"),
+               `Last name` = c("Bauer", "Doe", "Last", "Moshammer", "Sue"),
+               `Grade` = c(1,5,4,1,3),
+               check.names = FALSE)
+cat(ogc_table(x),sep = "\n")
+
+```
+
+```{r, eval = FALSE, echo=TRUE}
+d = iris[c(1:3, 51:52,102:105),]
+cat(ogc_table(d,),sep = "\n")
+```
+
+```{r iris, results='asis', eval = TRUE, echo=FALSE}
+d = iris[c(1:3, 51:52,102:105),]
+cat(ogc_table(d, striped = TRUE),
+    sep = "\n")
+```
