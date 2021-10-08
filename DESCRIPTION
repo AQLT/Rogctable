@@ -1,0 +1,20 @@
+Package: Rogctable
+Type: Package
+Title: 'OGC' Table
+Version: 0.1.0
+Authors@R: c(
+  person("Alain", "Quartier-la-Tente", role = c("aut", "cre"),
+                 email = "alain.quartier@yahoo.fr",
+                 comment = c(ORCID = "0000-0001-7890-3857")))
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+Imports:
+  knitr
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
+RoxygenNote: 7.1.1
