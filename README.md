@@ -37,8 +37,23 @@ Download the
 [PDF](https://github.com/AQLT/Rogctable/blob/master/vignettes/Rogctable.pdf),
 open it and click on the columns!
 
-<img src="https://user-images.githubusercontent.com/24825189/136651382-212ea2d6-83d0-4b89-98ef-cbcc2cd65b45.gif" style="width:70.0%" />
+<img src="https://github.com/AQLT/Rogctable/blob/gif-pages/ogc_sort.gif?raw=true" style="width:70.0%" />
 
 In the current version of `Rogctable`, only ascending sort is available
 and in the first layer (the one visible if you use a software
 non-compatible with OCG-layer) the data is sort by the first column.
+
+With the function `ogc_hide` you can also hide/show a specific column
+
+```` md
+```{r quiz, result = 'asis'}
+quiz = data.frame(`Country` = c("Angola","Belgium","France", "Honduras","Singapore"),
+               `Capital` = c("Luanda", "Brussels", "Paris", "Tegucigalpa", "Singapore"),
+               `Calling code` = c("+244", "+32", "+33","+504", "+65"),
+               check.names = FALSE)
+cat(ogc_hide(quiz, striped = TRUE,show = 2),
+    sep = "\n")
+```
+````
+
+<img src="https://github.com/AQLT/Rogctable/blob/gif-pages/ogc_hide.gif?raw=true" style="width:70.0%" />

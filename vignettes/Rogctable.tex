@@ -332,4 +332,160 @@ names!
 \end{ocg}
 \end{tikzpicture}
 
+You can also hide/show a specific column:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{quiz }\OtherTok{=} \FunctionTok{data.frame}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{Country}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{c}\NormalTok{(}\StringTok{"Angola"}\NormalTok{,}\StringTok{"Belgium"}\NormalTok{,}\StringTok{"France"}\NormalTok{, }\StringTok{"Honduras"}\NormalTok{,}\StringTok{"Singapore"}\NormalTok{),}
+               \StringTok{\textasciigrave{}}\AttributeTok{Capital}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{c}\NormalTok{(}\StringTok{"Luanda"}\NormalTok{, }\StringTok{"Brussels"}\NormalTok{, }\StringTok{"Paris"}\NormalTok{, }\StringTok{"Tegucigalpa"}\NormalTok{, }\StringTok{"Singapore"}\NormalTok{),}
+               \StringTok{\textasciigrave{}}\AttributeTok{Calling code}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{c}\NormalTok{(}\StringTok{"+244"}\NormalTok{, }\StringTok{"+32"}\NormalTok{, }\StringTok{"+33"}\NormalTok{,}\StringTok{"+504"}\NormalTok{, }\StringTok{"+65"}\NormalTok{),}
+               \AttributeTok{check.names =} \ConstantTok{FALSE}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\FunctionTok{ogc\_hide}\NormalTok{(quiz, }\AttributeTok{striped =} \ConstantTok{TRUE}\NormalTok{),}
+    \AttributeTok{sep =} \StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\DTLnewdb{quiz}
+\DTLnewrow{quiz}
+\DTLnewdbentry{quiz}{cola}{Angola}
+\DTLnewdbentry{quiz}{colb}{Luanda}
+\DTLnewdbentry{quiz}{colc}{+244}
+\DTLnewrow{quiz}
+\DTLnewdbentry{quiz}{cola}{Belgium}
+\DTLnewdbentry{quiz}{colb}{Brussels}
+\DTLnewdbentry{quiz}{colc}{+32}
+\DTLnewrow{quiz}
+\DTLnewdbentry{quiz}{cola}{France}
+\DTLnewdbentry{quiz}{colb}{Paris}
+\DTLnewdbentry{quiz}{colc}{+33}
+\DTLnewrow{quiz}
+\DTLnewdbentry{quiz}{cola}{Honduras}
+\DTLnewdbentry{quiz}{colb}{Tegucigalpa}
+\DTLnewdbentry{quiz}{colc}{+504}
+\DTLnewrow{quiz}
+\DTLnewdbentry{quiz}{cola}{Singapore}
+\DTLnewdbentry{quiz}{colb}{Singapore}
+\DTLnewdbentry{quiz}{colc}{+65}
+
+\begin{tikzpicture}
+\begin{ocg}[exportocg=always]{Country}{ocquizaid}{1}
+\node[] (p1) {
+  \begin{tabular}{lll}
+  \toprule
+  \bfseries \setocgs{}{ocquizaid}{ocquizbid ocquizcid}{Country} & \bfseries \setocgs{}{ocquizbid}{ocquizaid ocquizcid}{Capital} & \bfseries \setocgs{}{ocquizcid}{ocquizaid ocquizbid}{Calling code}
+  
+  \DTLforeach{quiz}{\cmda =cola, \cmdb =colb, \cmdc =colc}{
+  \DTLiffirstrow{\\ \midrule}{\\}
+  \DTLifoddrow{\cellcolor{gray!6}{\cmda}}{\cmda} & \DTLifoddrow{\cellcolor{gray!6}{\cmdb}}{\cmdb} & \DTLifoddrow{\cellcolor{gray!6}{\cmdc}}{\cmdc}
+  }
+  \\ \bottomrule
+  \end{tabular}
+};
+\end{ocg}
+\begin{ocg}[exportocg=never]{Capital}{ocquizbid}{0}
+\node[overlay] (p2) {
+  \begin{tabular}{lll}
+  \toprule
+  \bfseries \setocgs{}{ocquizaid}{ocquizbid ocquizcid}{Country} & \bfseries \setocgs{}{ocquizbid}{ocquizaid ocquizcid}{Capital} & \bfseries \setocgs{}{ocquizcid}{ocquizaid ocquizbid}{Calling code}
+  
+  \DTLforeach{quiz}{\cmda =cola, \cmdb =colb, \cmdc =colc}{
+  \DTLiffirstrow{\\ \midrule}{\\}
+  \DTLifoddrow{\cellcolor{gray!6}{\cmda}}{\cmda} & \DTLifoddrow{\cellcolor{gray!6}{}}{} & \DTLifoddrow{\cellcolor{gray!6}{\cmdc}}{\cmdc}
+  }
+  \\ \bottomrule
+  \end{tabular}
+};
+\end{ocg}
+\begin{ocg}[exportocg=never]{Calling code}{ocquizcid}{0}
+\node[overlay] (p3) {
+  \begin{tabular}{lll}
+  \toprule
+  \bfseries \setocgs{}{ocquizaid}{ocquizbid ocquizcid}{Country} & \bfseries \setocgs{}{ocquizbid}{ocquizaid ocquizcid}{Capital} & \bfseries \setocgs{}{ocquizcid}{ocquizaid ocquizbid}{Calling code}
+  
+  \DTLforeach{quiz}{\cmda =cola, \cmdb =colb, \cmdc =colc}{
+  \DTLiffirstrow{\\ \midrule}{\\}
+  \DTLifoddrow{\cellcolor{gray!6}{\cmda}}{\cmda} & \DTLifoddrow{\cellcolor{gray!6}{\cmdb}}{\cmdb} & \DTLifoddrow{\cellcolor{gray!6}{}}{}
+  }
+  \\ \bottomrule
+  \end{tabular}
+};
+\end{ocg}
+\end{tikzpicture}
+
+Use the parameter \texttt{show} to hide a column by default:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\FunctionTok{ogc\_hide}\NormalTok{(quiz, }\AttributeTok{striped =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{show =} \DecValTok{2}\NormalTok{),}
+    \AttributeTok{sep =} \StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\DTLnewdb{quiz2}
+\DTLnewrow{quiz2}
+\DTLnewdbentry{quiz2}{cola}{Angola}
+\DTLnewdbentry{quiz2}{colb}{Luanda}
+\DTLnewdbentry{quiz2}{colc}{+244}
+\DTLnewrow{quiz2}
+\DTLnewdbentry{quiz2}{cola}{Belgium}
+\DTLnewdbentry{quiz2}{colb}{Brussels}
+\DTLnewdbentry{quiz2}{colc}{+32}
+\DTLnewrow{quiz2}
+\DTLnewdbentry{quiz2}{cola}{France}
+\DTLnewdbentry{quiz2}{colb}{Paris}
+\DTLnewdbentry{quiz2}{colc}{+33}
+\DTLnewrow{quiz2}
+\DTLnewdbentry{quiz2}{cola}{Honduras}
+\DTLnewdbentry{quiz2}{colb}{Tegucigalpa}
+\DTLnewdbentry{quiz2}{colc}{+504}
+\DTLnewrow{quiz2}
+\DTLnewdbentry{quiz2}{cola}{Singapore}
+\DTLnewdbentry{quiz2}{colb}{Singapore}
+\DTLnewdbentry{quiz2}{colc}{+65}
+
+\begin{tikzpicture}
+\begin{ocg}[exportocg=never]{Country}{ocquiz2aid}{0}
+\node[] (p1) {
+  \begin{tabular}{lll}
+  \toprule
+  \bfseries \setocgs{}{ocquiz2aid}{ocquiz2bid ocquiz2cid}{Country} & \bfseries \setocgs{}{ocquiz2bid}{ocquiz2aid ocquiz2cid}{Capital} & \bfseries \setocgs{}{ocquiz2cid}{ocquiz2aid ocquiz2bid}{Calling code}
+  
+  \DTLforeach{quiz2}{\cmda =cola, \cmdb =colb, \cmdc =colc}{
+  \DTLiffirstrow{\\ \midrule}{\\}
+  \DTLifoddrow{\cellcolor{gray!6}{\cmda}}{\cmda} & \DTLifoddrow{\cellcolor{gray!6}{\cmdb}}{\cmdb} & \DTLifoddrow{\cellcolor{gray!6}{\cmdc}}{\cmdc}
+  }
+  \\ \bottomrule
+  \end{tabular}
+};
+\end{ocg}
+\begin{ocg}[exportocg=always]{Capital}{ocquiz2bid}{1}
+\node[overlay] (p2) {
+  \begin{tabular}{lll}
+  \toprule
+  \bfseries \setocgs{}{ocquiz2aid}{ocquiz2bid ocquiz2cid}{Country} & \bfseries \setocgs{}{ocquiz2bid}{ocquiz2aid ocquiz2cid}{Capital} & \bfseries \setocgs{}{ocquiz2cid}{ocquiz2aid ocquiz2bid}{Calling code}
+  
+  \DTLforeach{quiz2}{\cmda =cola, \cmdb =colb, \cmdc =colc}{
+  \DTLiffirstrow{\\ \midrule}{\\}
+  \DTLifoddrow{\cellcolor{gray!6}{\cmda}}{\cmda} & \DTLifoddrow{\cellcolor{gray!6}{}}{} & \DTLifoddrow{\cellcolor{gray!6}{\cmdc}}{\cmdc}
+  }
+  \\ \bottomrule
+  \end{tabular}
+};
+\end{ocg}
+\begin{ocg}[exportocg=never]{Calling code}{ocquiz2cid}{0}
+\node[overlay] (p3) {
+  \begin{tabular}{lll}
+  \toprule
+  \bfseries \setocgs{}{ocquiz2aid}{ocquiz2bid ocquiz2cid}{Country} & \bfseries \setocgs{}{ocquiz2bid}{ocquiz2aid ocquiz2cid}{Capital} & \bfseries \setocgs{}{ocquiz2cid}{ocquiz2aid ocquiz2bid}{Calling code}
+  
+  \DTLforeach{quiz2}{\cmda =cola, \cmdb =colb, \cmdc =colc}{
+  \DTLiffirstrow{\\ \midrule}{\\}
+  \DTLifoddrow{\cellcolor{gray!6}{\cmda}}{\cmda} & \DTLifoddrow{\cellcolor{gray!6}{\cmdb}}{\cmdb} & \DTLifoddrow{\cellcolor{gray!6}{}}{}
+  }
+  \\ \bottomrule
+  \end{tabular}
+};
+\end{ocg}
+\end{tikzpicture}
+
 \end{document}
