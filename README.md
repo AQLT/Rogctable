@@ -37,7 +37,7 @@ Download the
 [PDF](https://github.com/AQLT/Rogctable/blob/master/vignettes/Rogctable.pdf),
 open it and click on the columns!
 
-<img src="https://github.com/AQLT/Rogctable/blob/gif-pages/ogc_sort.gif?raw=true" style="width:70.0%" />
+<img src="https://github.com/AQLT/Rogctable/blob/gif-pages/ogc_sort.gif?raw=true" style="width:50.0%" />
 
 In the current version of `Rogctable`, only ascending sort is available
 and in the first layer (the one visible if you use a software
@@ -56,4 +56,4 @@ cat(ogc_hide(quiz, striped = TRUE,show = 2),
 ```
 ````
 
-<img src="https://github.com/AQLT/Rogctable/blob/gif-pages/ogc_hide.gif?raw=true" style="width:70.0%" />
+<img src="https://github.com/AQLT/Rogctable/blob/gif-pages/ogc_hide.gif?raw=true" style="width:50.0%" />

@@ -35,7 +35,7 @@ cat(ogc_table(x),
 
 Download the [PDF](https://github.com/AQLT/Rogctable/blob/master/vignettes/Rogctable.pdf), open it and click on the columns!
 
-![](https://github.com/AQLT/Rogctable/blob/gif-pages/ogc_sort.gif?raw=true){width=70%}
+![](https://github.com/AQLT/Rogctable/blob/gif-pages/ogc_sort.gif?raw=true){width=50%}
 
 In the current version of `Rogctable`, only ascending sort is available and in the first layer (the one visible if you use a software non-compatible with OCG-layer) the data is sort by the first column.
 
@@ -52,4 +52,4 @@ cat(ogc_hide(quiz, striped = TRUE,show = 2),
 ```
 ````
 
-![](https://github.com/AQLT/Rogctable/blob/gif-pages/ogc_hide.gif?raw=true){width=70%}
+![](https://github.com/AQLT/Rogctable/blob/gif-pages/ogc_hide.gif?raw=true){width=50%}
