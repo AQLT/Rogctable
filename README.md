@@ -31,3 +31,5 @@ cat(ogc_table(d1),
 Download the
 [PDF](https://github.com/AQLT/Rogctable/blob/master/vignettes/Rogctable.pdf),
 open it and click on the columns!
+
+![ogclayer](https://user-images.githubusercontent.com/24825189/136651382-212ea2d6-83d0-4b89-98ef-cbcc2cd65b45.gif)
