@@ -4,7 +4,7 @@
 # Rogctable
 
 Uses packages `ocg-p`, `datatool`, `tikz` and `booktabs` to create
-sortable table with LaTeX output. Built on PDF Layers (Optional Content
+sortable table with LaTeX output. Build on PDF Layers (Optional Content
 Groups (OCG)): only works with Acrobat Reader, Foxit Reader,
 PDF-XChange-Viewer or Evince.
 
@@ -21,15 +21,24 @@ header-includes:
 The `results='asis'` must be used in the chunks. Then you just need to
 use the function `ogc_table` with `cat`:
 
-``` r
+```` md
+```{r data, result = 'asis'}
 library(Rogctable)
-d1 = head(iris)
-cat(ogc_table(d1),
+x = data.frame(`First name` = c("Paul","John","Ever","Werner","Peggy"),
+               `Last name` = c("Bauer", "Doe", "Last", "Moshammer", "Sue"),
+               `Grade` = c(1,5,4,1,3),
+               check.names = FALSE)
+cat(ogc_table(x),
     sep = "\n")
 ```
+````
 
 Download the
 [PDF](https://github.com/AQLT/Rogctable/blob/master/vignettes/Rogctable.pdf),
 open it and click on the columns!
 
-![ogclayer](https://user-images.githubusercontent.com/24825189/136651382-212ea2d6-83d0-4b89-98ef-cbcc2cd65b45.gif)
+<img src="https://user-images.githubusercontent.com/24825189/136651382-212ea2d6-83d0-4b89-98ef-cbcc2cd65b45.gif" style="width:70.0%" />
+
+In the current version of `Rogctable`, only ascending sort is available
+and in the first layer (the one visible if you use a software
+non-compatible with OCG-layer) the data is sort by the first column.
