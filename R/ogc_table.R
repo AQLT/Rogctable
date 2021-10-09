@@ -72,7 +72,8 @@ format_ocg_tikz <- function(i, nom_col, id_col, align, nom_col_ocgs, label, stri
       sprintf("\\begin{tabular}{%s}", align),
       "\\toprule",
       paste(nom_col_ocgs, collapse = " & "),
-      sprintf("\\DTLsort*{col%s}{%s}", id_col[i], label),
+      sprintf("\\DTLsort*{col%s}{%s}", id_col[i], label),#\\DTLsort* for non case sensitive sort
+      #sprintf("\\DTLsort*{col%s=descending}{%s}", id_col[i], label),
       sprintf("\\DTLforeach{%s}{%s}{",
               label,
               paste(sprintf("\\cmd%s =col%s",id_col, id_col),
