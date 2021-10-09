@@ -66,7 +66,7 @@
 <div id="rogctable" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#rogctable" class="anchor"></a>Rogctable</h1></div>
-<p>Uses packages <code>ocg-p</code>, <code>datatool</code>, <code>tikz</code> and <code>booktabs</code> to create sortable table with LaTeX output. Built on PDF Layers (Optional Content Groups (OCG)): only works with Acrobat Reader, Foxit Reader, PDF-XChange-Viewer or Evince.</p>
+<p>Uses packages <code>ocg-p</code>, <code>datatool</code>, <code>tikz</code> and <code>booktabs</code> to create sortable table with LaTeX output. Build on PDF Layers (Optional Content Groups (OCG)): only works with Acrobat Reader, Foxit Reader, PDF-XChange-Viewer or Evince.</p>
 <div id="usage" class="section level2">
 <h2 class="hasAnchor">
 <a href="#usage" class="anchor"></a>Usage</h2>
@@ -74,13 +74,18 @@
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>header<span class="op">-</span>includes<span class="op">:</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="st">   </span><span class="op">-</span><span class="st"> </span>\usepackage{ocg<span class="op">-</span>p,datatool,tikz,booktabs,colortbl}</span></code></pre></div>
 <p>The <code>results='asis'</code> must be used in the chunks. Then you just need to use the function <code>ogc_table</code> with <code>cat</code>:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">Rogctable</span><span class="op">)</span>
-<span class="va">d1</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">iris</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="fu"><a href="reference/ogc_table.html">ogc_table</a></span><span class="op">(</span><span class="va">d1</span><span class="op">)</span>,
-    sep <span class="op">=</span> <span class="st">"\n"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1"></a><span class="bn">```{r data, result = 'asis'}</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="bn">library(Rogctable)</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="bn">x = data.frame(`First name` = c("Paul","John","Ever","Werner","Peggy"),</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="bn">               `Last name` = c("Bauer", "Doe", "Last", "Moshammer", "Sue"),</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="bn">               `Grade` = c(1,5,4,1,3),</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="bn">               check.names = FALSE)</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="bn">cat(ogc_table(x),</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="bn">    sep = "\n")</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="bn">```</span></span></code></pre></div>
 <p>Download the <a href="https://github.com/AQLT/Rogctable/blob/master/vignettes/Rogctable.pdf">PDF</a>, open it and click on the columns!</p>
-<p><img src="https://user-images.githubusercontent.com/24825189/136651382-212ea2d6-83d0-4b89-98ef-cbcc2cd65b45.gif" alt="ogclayer"></p>
+<p><img src="https://user-images.githubusercontent.com/24825189/136651382-212ea2d6-83d0-4b89-98ef-cbcc2cd65b45.gif" style="width:70.0%"></p>
+<p>In the current version of <code>Rogctable</code>, only ascending sort is available and in the first layer (the one visible if you use a software non-compatible with OCG-layer) the data is sort by the first column.</p>
 </div>
 </div>
   </div>
